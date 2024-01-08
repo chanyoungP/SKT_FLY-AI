@@ -62,7 +62,16 @@ v(s_i) = r(s_i) + \gamma\sum{p_{ij}R_j}
 $$
 
 
+### Markov Decision Process
+- (SAPR)
+> S : finite state <br>
+> A : Action <br>
+> P : Transition Prob <br>
+> 
 
+- Bellman Equation 
+$$ V(s) = R(s) + \gamma \cdot \max_a \sum_{s'} P(s' | s, a) \cdot V(s') 
+$$
 
 
 
