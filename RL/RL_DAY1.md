@@ -73,7 +73,7 @@ $$
 $$ V(s) = R(s) + \gamma \cdot \max_a \sum_{s'} P(s' | s, a) \cdot V(s') 
 $$
 
-
+- solve bellman eq -> update policy 
 
 
 State (S):
@@ -91,3 +91,6 @@ Represents the state that the environment transitions to after the agent takes t
 Next Action (A'):
 
 Denotes the next action that the agent will take in the next state.
+
+
+# 컨볼루션 연산은 사실 correlation 
