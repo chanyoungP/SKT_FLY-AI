@@ -92,5 +92,3 @@ Next Action (A'):
 
 Denotes the next action that the agent will take in the next state.
 
-
-# 컨볼루션 연산은 사실 correlation 
