@@ -166,6 +166,44 @@ kubectl get deployment
 
 kubectl get pod 
  
+```
+### service 
+- 서비스는 쿠버네티스에 배포한 애플리케이션(pod)를 외부에서 접근하기 쉽게 추상화한 리소스
+- 기존 pod는 내부 ip를 할당받고 생성되지만, 언제든지 죽었다가 다시 살아나기 때문에 ip는 그 과정에서 재할당된다. 이를 외부에서 쉽게 접근하기 위해서 ip로 접근하는 대신에 service를 통해서 접근하는 방법
+```
+kubectl get pod -o wide 
+# Pod 의 IP 를 확인합니다. 
+ 
 
+curl -X GET <POD-IP> -vvv 
+ping <POD-IP> 
+# 통신 불가능 
+ 
+
+할당된 <POD-IP> 는 클러스터 내부에서만 접근할 수 있는 IP 이기 때문에 외부에서는 Pod 에 접속할 수 없습니다. 
+
+minikube 내부로 접속하면 통신이 되는지 확인해보겠습니다. 
+
+minikube ssh 
+# minikube 내부로 접속합니다. 
+ 
+
+curl -X GET <POD-IP> -vvv 
+ping <POD-IP> 
+# 통신 가능 
+```
+### Service로 위에 한 것처럼 길 뚫어주기 
+```
+vi service.yaml 
+
+kubectl apply -f service.yaml 
+ 
+
+kubectl get service 
+# PORT 80:<PORT> 숫자 확인 
+ 
+
+curl -X GET $(minikube ip):<PORT> 
+# 이렇게 서비스를 통해서 클러스터 외부에서도 정상적으로 pod 에 접속할 수 있는 것을 확인합니다.
 
 ```
