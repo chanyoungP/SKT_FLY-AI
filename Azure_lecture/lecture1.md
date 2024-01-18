@@ -51,6 +51,7 @@ sudo docker run hello-world
 ```
 sudo usermod -aG docker <your_username>
 
+
 logout
 
 groups  # docker 가 추가됐는지 확인

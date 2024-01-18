@@ -91,4 +91,3 @@ Represents the state that the environment transitions to after the agent takes t
 Next Action (A'):
 
 Denotes the next action that the agent will take in the next state.
-
