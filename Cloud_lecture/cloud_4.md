@@ -59,3 +59,78 @@
 1. 가상머신 만들기 
 2. 도커 설치
 3. hello-world 이미지 run 
+
+```
+docker pull node:20-alpine
+
+docker run -it -d -p 8080:8080 --name nodejs_app node:20-alpine
+
+docker ps
+```
+
+```
+docker pull nginx:1.25.3-alpine
+
+docker run --name nginx-srv -p 80:80 -d nginx:1.25.3-alpine
+```
+
+```
+#웹 앱 실행중이므로 가상 머신 공용 아이피로 접근 가능 
+
+#단, vm HTTP 80 인바운드 포트 규칙 추가해줘야함.. .
+
+```
+
+- 여기까지가 docker 컨테이너를 이용한 웹 서비스 접근 방법 
+
+> 로컬 VM 컨테이너 사이에서 처음 컨테이너 만들 때, VM하고 컨테이너 사이 포트 80 열어주었고, 로컬과 VM 사이를 인바운드 규칙 추가로 따로 적용을 해줘야한다. 
+>
+> 브라우저에서 공용아이피로 접근할 때, 우리는 로컬 -> VM -> 컨테이너 로 접근한다. 
+
+
+### 도커 파일 만들고 업로드하기 
+
+```
+vi Dockerfile 
+
+#파일 편집 
+
+# 도커 빌드해서 이미지로 만들기
+ 
+# 이미지 실행해서 컨테이너로 실행 docker run 
+
+
+#마운트해서 하기 
+sudo docker run --name apache -p 80:80 -d -v /home/chanchan/edupicker/html:/var/www/html apache2:1.0
+```
+
+### ACR : Azure Container Registry 
+
+```
+# Azure CLI bash  
+# ACR은 도커 허브  Azure 버전 
+az acr create --name mycyregi99 --resource-group edu-docker-cy --sku standard --admin-enabled true
+
+
+
+
+```
+
+### ACI Azure container instance 
+- 인스턴스를 생성해서 version 관리하고 웹으로 바로 배포 가능 
+
+
+## Azure Cosmos DB -SQL 및 CRUD  
+
+### Cosmos DB
+- 하이브리드 JSON 형식도 쓸 수 있고, 정통 SQL 형식도 쓸 수 있음. 
+
+
+### Azure cosmos DB 사용하기
+1. 코스모스 디비 만들기
+2. 데이터베이스와 컨테이너 추가하기
+3. 
+
+
+
+
