@@ -74,4 +74,26 @@ pip install pymongo python-dotenv
 ## Azure machine learning studio 작업 영역 및 기본 설정 
 
 ### 실습 
->
+- 작업영역
+  > azure machine learning 최상위 영역 
+[- ht](https://ml.azure.com/home?tid=fd02e20e-0ff3-4c05-98e2-ca7c15b5031b)
+> 작업 영역 만들고 
+- 컴퓨터 인스턴스 만들기 
+  > 머신러닝 전용 가상머신 만든다는 의미 
+
+### TTS 서비스 구현 
+- Speech API 
+> 음성 리소스 만들기 : azure speech service 들어가서 새로 만들기
+> TTS 폴더 만들기 - 파이썬 파일 만들기 -```pip install python-dotenv azure-congnitiveservice-speech```
+> 
+> 키, 지역 코드 복사 
+> 코드에 키 지역 코드 넣고  Azure Cognitive Services Speech SDK 사용하여 파이썬 코드 작성 실행 TTS 파일 참고 
+
+
+### 번역 서비스 구현 
+> azure 포탈에서 번역가 검색 
+> 리소스 생성
+> key location, endpoint 확인 endpoint 는 <웹 API> 탭에서 하고 싶은 번역 복사 (텍스트 번역, 문서 번역) (실습에서는 문서 번역) 
+> 파이썬 코드에서 env 설정에서 키 값 설정하고 , requirements.txt 파일 pip install 
+> tans.py 작성 
+> 
