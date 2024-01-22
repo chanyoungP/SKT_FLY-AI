@@ -2,7 +2,7 @@ import subprocess
 
 def run_croud_script():
     try:
-        subprocess.run(["python", "./Cloud_lecture/mysql/croud.py"], check=True)
+        subprocess.run(["python", r"./Cloud_lecture/mysql/croud.py"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error running croud.py: {e}")
 
