@@ -34,5 +34,9 @@ it을 번역하려면 스스로 분석을 통해 가능한 경우에 대해서 a
 > QK = cosine(Q,K) 크기가 1이라서 식이 성립 
 > SOFTMAX(QK) -> 유사성을 확률로 나타냄 . 
 >
-> >>> Attention(Q,K,V) = softmax(QK)V :: attention score를 나타내는 벡터 
 > 
+### Attention(Q,K,V) = softmax(QK)V :: attention score를 나타내는 벡터 
+
+### Multi-Head Attention : 여러 관점에서 attention을 달리준다. 
+해석의 다양성을 중시한다. 
+                                            

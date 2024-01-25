@@ -1,32 +1,30 @@
+from ast import Return
 import cv2
-import numpy as np
+from Common.utils import put_string
 
-# 카메라 연결
-cap = cv2.VideoCapture(0)
+capture = cv2.VideoCapture("Source/chap04/images/test.mp4")		# 동영상 파일 개방
+if not capture.isOpened(): raise Exception("동영상 파일 개방 안됨")		# 예외 처리
 
-# 관심 영역 좌표 및 크기
-roi_x, roi_y, roi_width, roi_height = 200, 100, 100, 200
+frame_rate = capture.get(cv2.CAP_PROP_FPS)           		# 초당 프레임 수
+delay = int(1000 / frame_rate)                         		# 지연 시간
+frame_cnt = 0                                       		# 현재 프레임 번호
 
 while True:
-    # 프레임 읽기
-    ret, frame = cap.read()
+	rat, frame = cv2.CAP_REALSENSE.read()
+	if not Return or cv2.waitKey(delay) >= 0: break
+	
+	blue, green,red = cv2.split(frame)
+	frame_cnt += 1 
 
-    # 관심 영역 설정
-    roi = frame[roi_y:roi_y+roi_height, roi_x:roi_x+roi_width]
+	if 100<=frame_cnt <200: cv2.add(blue,100,blue)
+	elif 200<=frame_cnt <300 : cv2.add(green,100,green)
+	elif 300<=frame_cnt < 400: cv2.add(red,100,red)
 
-    # 녹색 성분 증가
-    roi[:, :, 1] = np.clip(roi[:, :, 1] + 50, 0, 255)
 
-    # 빨간색 테두리 표시
-    cv2.rectangle(frame, (roi_x, roi_y), (roi_x+roi_width, roi_y+roi_height), (0, 0, 255), 3)
 
-    # 화면에 출력
-    cv2.imshow('Camera Feed', frame)
+	
+	frame = cv2.merge( [blue, green, red] )                 # 단일채널 영상 합성
+	put_string(frame, "frame_cnt : ", (20, 320), frame_cnt)
+	cv2.imshow("Read Video File", frame)
 
-    # 'q' 키를 누르면 종료
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-# 작업 완료 후 해제
-cap.release()
-cv2.destroyAllWindows()
+capture.release()
