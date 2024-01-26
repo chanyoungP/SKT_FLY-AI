@@ -15,3 +15,4 @@ add_img3 = cv2.addWeighted(image1,alpha, image2,beta,0)
 titles = ['image1','image2','add_img1','add_img2','add_img3']
 for t in titles: cv2.imshow(t, eval(t))
 cv2.waitKey(0)
+
