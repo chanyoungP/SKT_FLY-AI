@@ -22,4 +22,8 @@ DALL:E
 ### [Streamlit](https://streamlit.io/)
 A faster way to build and share data apps
 > 포트폴리오 용 쉽게 웹 배포하는 데모 배포 툴 
-> 
+
+### LangChain 소개 
+1. langchain으로 Language model 사용
+2. Document loaders 사용
+3. Spliter 사용
